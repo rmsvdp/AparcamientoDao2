@@ -1,8 +1,8 @@
 package Model;
-import Model.Files.DaoVehiculoList;
+
 import Model.Files.DaoEsList;
 import java.io.Serializable;
-import java.util.ArrayList;
+
 
 
 public class Aparcamiento  implements Serializable {
@@ -19,30 +19,38 @@ public class Aparcamiento  implements Serializable {
 	private int fila;
 	private int columna;
 	
-	public Aparcamiento() {
-		  
+	public Aparcamiento() {}
+
+
+	public Aparcamiento(String nombre, int numFilas, int numColumnas) {
+		this.nombre = nombre;
+		this.numFilas = numFilas;
+		this.numColumnas = numColumnas;
+		this.plaza = new String[numFilas][numColumnas];
+		initPlazas();
 	}
-
-
 	public Aparcamiento(String nombre) {
 		this.nombre = nombre;
 		this.numFilas = 10;
 		this.numColumnas = 10;
 		this.plaza = new String[numFilas][numColumnas];
+		initPlazas();
+	}
+
+	public void initPlazas() {
+		
 		for (int i=0;i<numFilas;i++) {
 			for (int j=0;j<numColumnas;j++) {
 				plaza[i][j]="";					// Vacía
 			}
 		}
 	}
-
-
+	
 	public int getNumFilas() 								 {	return numFilas;				}
 	public void setNumFilas(int numFilas) 					 {	this.numFilas = numFilas;		}
 	public int getNumColumnas() 							 {	return numColumnas;				}
 	public void setNumColumnas(int numColumnas)  			 {	this.numColumnas = numColumnas;	}
 	public String[][] getPlaza() 							 {	return plaza;					}
-
 	public String getNombre() 								 {	return nombre;					}
 	public void setNombre(String nombre) 					 {	this.nombre = nombre;			}
 	

@@ -17,21 +17,16 @@ import controller.CrudVehiculos;
 import tools.Menu;
 
 /**
- * Aparcamiento DAO versión 1
+ * Aparcamiento DAO versión 2
  * 
  * - Gestión a través de clase DAO de datos mediante ArrayList
- * - Persitencia de datos en Clase DAO en formato CSV
+ * - Persitencia de datos en Clase DAO con acceso a Base de Datos
  * 
  * TODO
  * 
- * 1. Crear clase EsCoches para registrar entradas y salidas
- * 2. Crear objeto DaoEsCoches para encapsular los datos
- * 3. Modificar las opciones 1 y 2 del menú, para que se registren
- *    las entradas y salidas
- * 4. La escritura en archivo de entrada salida se efectuará de 
- *    forma transparente en el objeto DAO además de mantener el array
- *    en memoria.
  */
+
+
 /**
  *
  * @author RMS
@@ -102,7 +97,7 @@ public class AparcamientoDao2 {
 				"Vehículos en Aparcamiento",
 				"Visor de Ocupación",
 				"Estadísticas",
-                                "Mantenimiento Sistema"
+                "Mantenimiento Sistema"
 		};
 		
 		init();// Operaciones de inicialización del programa ---------------------------------------------------------
@@ -344,10 +339,14 @@ public class AparcamientoDao2 {
 	
 	/**
 	 * Método de inicialización de la aplicación
-	 * - Recupera datos almacenados en disco o genera un set de pruebas
+	 * Recupera los datos base del aparcamiento de la base de datos
+	 * si no existe un aparcamiento lo crea
 	 * 
 	 */
 	public void init() {
+		
+		
+		
 //	      File file = new File(STORAGE); // Verifica si el archivo existe
 //	      if (file.exists()) {
 //	        	
